@@ -26,3 +26,20 @@ S/W:
 Node JS and NPM
 Visual Studio Code
 
+
+
+How do you create object in JS?
+a. new [constructor function]
+b. {} [Object literal]
+c. Object.create
+
+Extensions:
+a. HTML Boilerplate
+b. ES7 React/Redux/React-Native/JS snippets
+c. Babel JavaScript
+d. Babel ES6/ES7
+e. webpack
+f. vscode-icons
+g. prettier
+
+
