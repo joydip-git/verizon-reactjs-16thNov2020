@@ -14,3 +14,9 @@ for (var propertyName in joydipCreate) {
 }
 
 console.log(joydipCreate.print())
+
+// var copy = Object.create(joydipCreate);
+// console.log(copy === joydipCreate)
+// console.log(copy)
+// console.log(joydipCreate)
+console.log(joydipCreate)

@@ -19,3 +19,5 @@ for (var propertyName in joydipObject) {
     console.log(propertyName + ": " + propertyValue)
 }
 
+
+console.log(joydipObject.__proto__)

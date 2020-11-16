@@ -1,4 +1,6 @@
 1. JavaScript: prototype based programming, context, inheritance, polymorphism, closure and lexical this problem
+a. Prototype chaining: inheritance
+
 2. new features of JS
 (let, const, arrow operator, class, super, extends, constructor, object destructuring, spread operator, rest parameter, optional argument with default value, string template, static keyword...)
 
