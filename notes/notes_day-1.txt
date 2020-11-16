@@ -50,6 +50,10 @@ every object inherits from the Object function's prototype object, either direct
 
 Purpose: inheritance (of objects)
 
+savings account - name, balance, calculateInterest
+current account - name, balance, calculateInterest
+
+
 
 
 
