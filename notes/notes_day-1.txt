@@ -1,7 +1,7 @@
 1. JavaScript: prototype based programming, context, inheritance, polymorphism, closure and lexical this problem
 a. Prototype chaining: inheritance
 
-2. new features of JS
+2. new features of JS/ES6
 (let, const, arrow operator, class, super, extends, constructor, object destructuring, spread operator, rest parameter, optional argument with default value, string template, static keyword...)
 
 3. React JS:
@@ -28,14 +28,7 @@ S/W:
 Node JS and NPM
 Visual Studio Code
 
-
-
-How do you create object in JS?
-a. new [constructor function]
-b. {} [Object literal]
-c. Object.create
-
-Extensions:
+VS Code Extensions:
 a. HTML Boilerplate
 b. ES7 React/Redux/React-Native/JS snippets
 c. Babel JavaScript
@@ -43,5 +36,20 @@ d. Babel ES6/ES7
 e. webpack
 f. vscode-icons
 g. prettier
+
+
+How do you create object in JS?
+a. new [constructor function]
+b. {} [Object literal]
+c. Object.create
+
+Prototype object: every ctor function in javascript is provided with a default object with two properties minimum (__proto__ and constructor), known as Prototype object of the function/ function prototype object
+
+Object--> is the top level function in JS
+every object inherits from the Object function's prototype object, either directly or indirectly
+
+Purpose: inheritance (of objects)
+
+
 
 
