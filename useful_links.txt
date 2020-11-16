@@ -1,0 +1,23 @@
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+Prototype chain:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+Closure and Lexical scoping:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+
+Arrow functions:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+Classes:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+ES6 features:
+https://github.com/lukehoban/es6features
+http://es6-features.org/#Constants
+
+Execution context, Scope chain and JavaScript internals:
+https://medium.com/@happymishra66/execution-context-in-javascript-319dd72e8e2c
+
+Mixins:
+https://javascript.info/mixins
