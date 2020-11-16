@@ -1,0 +1,28 @@
+1. JavaScript: prototype based programming, context, inheritance, polymorphism, closure and lexical this problem
+2. new features of JS
+(let, const, arrow operator, class, super, extends, constructor, object destructuring, spread operator, rest parameter, optional argument with default value, string template, static keyword...)
+
+3. React JS:
+a. Introduction - Virtual DOM, React element, ....
+b. how to create a React application without any tool
+b. how to create a React application with the help of a tool (create-react-app)
+
+4. React JS Concepts
+a. props
+b. state
+c. class and functional component
+d. lifecyle of class component
+e. error handling
+f. list and key
+
+Technology: (JavaScript frameworks/libraries)
+Client-side framework: React JS (library) / Anagular (framework)/ Vue
+Server side framework: Node JS
+
+Language:
+JavaScript, TypeScript, NativeScript,...
+
+S/W:
+Node JS and NPM
+Visual Studio Code
+
