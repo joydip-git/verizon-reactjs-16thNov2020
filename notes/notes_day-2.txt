@@ -147,6 +147,11 @@ I want to use bundelr software
 
 webpack: https://webpack.js.org/guides/getting-started/
 
+npx create-react-app react-toolbased-app
+
+>npm i create-react-app -g
+>create-react-app react-toolbased-app
+
 
 
 
