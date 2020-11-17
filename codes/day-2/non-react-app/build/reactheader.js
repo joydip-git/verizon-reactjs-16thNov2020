@@ -9,12 +9,15 @@ define(["exports"], function (_exports) {
   //reactheader --> component
   var reactheader = function reactheader() {
     //data
-    var headerContent = 'Introduction to React JS';
-    var reactHeaderDesign = document.createElement('h2');
+    var headerContent = 'Introduction to React JS'; //HTML element
+
+    var reactHeaderDesign = document.createElement('h2'); //styles
+
     reactHeaderDesign.style.fontFamily = 'Segoe UI';
     reactHeaderDesign.style.backgroundColor = 'burlywood';
-    reactHeaderDesign.style.border = '2px solid blue';
-    reactHeaderDesign.innerHTML = headerContent; //design/element of this component
+    reactHeaderDesign.style.border = '2px solid blue'; //content of the element
+
+    reactHeaderDesign.innerHTML = headerContent; //returning design/element of this component
 
     return reactHeaderDesign;
   };

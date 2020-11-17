@@ -1,3 +1,4 @@
+//bootstrapper file
 import { app } from './app'
 
 const appElememt = app();

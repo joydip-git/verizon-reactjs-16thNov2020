@@ -12,10 +12,13 @@ define(["exports", "./reactheader", "./reactdescription"], function (_exports, _
   //import { reactheader } from "./reactheader";
   var app = function app() {
     var headerElement = (0, _reactheader["default"])();
-    var descriptionElement = (0, _reactdescription.reactdescription)();
-    var appDesign = document.createElement('div');
+    var descriptionElement = (0, _reactdescription.reactdescription)(); //HTML element
+
+    var appDesign = document.createElement('div'); //content
+
     appDesign.appendChild(headerElement);
-    appDesign.appendChild(descriptionElement);
+    appDesign.appendChild(descriptionElement); //returning complete app design/element from this component
+
     return appDesign;
   }; //export const add = (a, b) => (a + b);
   //export default function sub(a, b) { return (a - b) };

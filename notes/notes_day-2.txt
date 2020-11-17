@@ -5,8 +5,8 @@ Client side web application
 React native: mobile application
 
 module:
-a. web/browser environment
-b. node js environment
+a. web/browser environment -->js/ts -->module loader[RequireJS-->AMD]-->browser runtime -->C++ (V8)
+b. node js environment -->js/ts --> module loader (common js module loader)-->Node runtime-->C++ (V8)
 
 
 JS file (code)--->Node JS runtime[engine(V8 engine)]----->execute JS code
@@ -47,6 +47,9 @@ Java (.java)---> Java Compiler-->byte code--> JVM --> executes
 .babelrc
 
 
+Application: client-side web application
+
+individual content+code => component
 
 Technology: Angular/React JS/ Plain JS-HTML app
 
@@ -57,3 +60,98 @@ development server:lite-server
 transpiler: bable/ts compiler
 
 production?
+
+new features in ES --> JS/TS
+a. progamming features: class, const, let, arrow operator, etc.....
+b. modules (for resolving dependencies amongst files) --> root: ES6 module [import/export]
+
+additional:
+1. Transpiler:
+   transpiler: (babel)
+a. core package: @babel/core
+b. cli package: @babel/cli
+
+c. ES6 feature transformer plugins or presets (array of plugins): 
+
+plugins:
+arrow operator: @babel/plugin-transform-arrow-functions
+classes: @babel/plugin-transform-classes
+etc....
+
+preset: @babel/preset-env [es6/7/8/9/10]
+
+d. module plugins or presets: 
+plugins:
+AMD: @babel/plugin-transform-modules-amd
+Common JS:@babel/plugin-transform-modules-commonjs 
+UMD: @babel/plugin-transform-modules-umd
+System JS: @babel/plugin-transform-modules-systemjs
+
+configuration of Babel (babel.config.json/.babelrc)
+contain information about plugins/ presets etc....
+
+installation command: 
+npm i @babel/core @babel/cli @babel/preset-env @babel/plugin-transform-modules-amd --save-dev
+
+command to run babel:
+babel <input-dir> --out-dir <output-dir-name>
+ex: babel src --out-dir build
+
+2. development mode packages:
+development server:
+a. webpack-dev-server
+b. server-lite
+c. lite-server [chosen]
+etc.
+npm i lite-server --save-dev
+lite-server --baseDir=build
+
+
+React JS library based client-side web application:
+Packages:
+
+1. react packages:
+a. react
+b. react-dom
+
+2. Transpiler:babel
+a. core package: @babel/core
+b. cli package: @babel/cli
+c. ES6 feature transformer plugins or presets (array of plugins) packages:
+preset package: @babel/preset-env
+d. React JSX preset:@babel/preset-react
+//d. module plugin packages: @babel/plugin-transform-modules-amd (?)
+
+4. bundler packages: (webpack)
+core: webpack
+cli: webpack-cli
+plugins: html-webpack-plugin, clean-webpack-plugin
+
+5. loader packages (related to webpack)
+HTML: html-loader
+CSS: css-loader, style-loader
+JS: babel-loader
+TS: ts-loader
+images: file-loader
+xml files: xml-loader
+csv: csv-loader
+
+6. development server:
+webpack-dev-server
+
+1. I don't want to manually transpile
+2. I dont want to install module package
+3. someone should transpile and create and index.html file from given index.html (in public folder) by linking with necesassry JS file (index.js) automatically
+
+I want to use bundelr software
+
+webpack: https://webpack.js.org/guides/getting-started/
+
+
+
+
+
+
+
+
+
