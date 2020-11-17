@@ -53,6 +53,12 @@ Purpose: inheritance (of objects)
 savings account - name, balance, calculateInterest
 current account - name, balance, calculateInterest
 
+object of savings a/c
+object current a/c
+
+object--> Account operations- withdraw, deposit
+
+
 
 
 

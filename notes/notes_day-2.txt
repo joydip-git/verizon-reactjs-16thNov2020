@@ -1,0 +1,59 @@
+React JS: JavaScript Library NOT a framework
+Client side web application
+
+
+React native: mobile application
+
+module:
+a. web/browser environment
+b. node js environment
+
+
+JS file (code)--->Node JS runtime[engine(V8 engine)]----->execute JS code
+JS --> C++ --> V8 engine--> executes
+
+modular concept
+js code --> module
+
+module format: IIEF, common js, system js, AMD (asynchronous module definition), UMD (Universal module definition), ES6 modules (EXNext) [import/export]
+
+
+module loader: require js, system.register
+
+Convert you JS code with all new features (ES6-->ES10) and new module style back to older JS code
+Transpilation --> Transpiler
+Babel, TypeScript compiler,
+
+Transcompiler (ES5/3/2---<ES6)
+
+
+import -->AMD/CommonJS/UMD
+export---> AMD/CommonJS/UMD
+
+class A{} --> function A(){this...}
+
+const add = ()=>{} --> var add = function(){}
+
+const arr=[] --> var arr=[]
+
+const x = 10;
+
+C/C++ (.c/.cpp) --->turbo C++ compiler --> runtime --> executes
+C# (.cs)-->csc-->CLR--->executes
+Java (.java)---> Java Compiler-->byte code--> JVM --> executes
+
+
+
+.babelrc
+
+
+
+Technology: Angular/React JS/ Plain JS-HTML app
+
+Language: JS/TS/NS
+
+artifacts: 
+development server:lite-server
+transpiler: bable/ts compiler
+
+production?
