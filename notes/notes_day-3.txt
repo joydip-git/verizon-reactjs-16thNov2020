@@ -1,0 +1,48 @@
+1. how to pass data from one component to another component
+2. different ways to create component: class and functional component
+3. state in class component
+4. how to display list/series of react elements
+5. key property of react elements
+
+const A = ()=>{
+   return (<div>Hi....</div>);
+}
+
+const A = ()=>{
+   return 'Hi...'/10/true-false/[]/{}/(<div>Hi....</div>);
+}
+
+import React,{Component} from 'react'
+
+class B extends Component{
+
+	render(){
+		return (<div>Hi....</div>);
+	}
+}
+
+import A from './A'
+import B from './B'
+
+const App=()=>{
+  
+  const aElement = A();
+  const bObj = new B();
+  const bElement = bObj.render();
+  
+  return (
+    <div>{aElement}<br/>{bElement}</div>
+  );
+
+}
+
+const App=()=>{
+   
+  return (
+    <div> <A /> <br/> <B /> </div>
+  );
+
+}
+
+
+
