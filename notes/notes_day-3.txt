@@ -1,5 +1,14 @@
 1. how to pass data from one component to another component
 2. different ways to create component: class and functional component
+class								functional
+--------------------------------------------------------------------------------------------------------
+a. additional component object created					a. no component object, just react element
+b. render function called to generate RE				b. no render function, the func comp itself is like render function
+c. you can have state 							c. no state
+d. to access members you use this keyword				d. no question of this keyword
+e. component object and react element both will have props property 	e. only react element will have props property
+f. lifecycle (of component) event hooks can be used			f. no question of lifecycle of component
+
 3. state in class component
 4. how to display list/series of react elements
 5. key property of react elements
