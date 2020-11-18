@@ -1,31 +1,36 @@
+import { Component } from 'react';
 import './App.css';
 import Welcome from './Welcome';
 
-function App() {
+class App extends Component {
+  state = {
+    message: 'Welcome to class component'
+  }
 
-  let message = 'Welcome to class component';
-
-  const printHandler = (value) => {
+  printHandler = (value) => {
     console.log(value)
     window.alert('calling function...')
   }
 
-  // const welcomeObj = new Welcome();
-  // const welcomeElement  = welcomeObj.render();
+  changeMessageHandler = (newMessage) => {
+    this.setState({
+      message: newMessage
+    })
+  }
 
-  // console.log(welcomeObj)
-  // console.log(welcomeElement)
 
-  const welcomeElement = <Welcome messageValue={message} data={10} show={true} print={printHandler} />;
-  // console.log(welcomeElement)
-
-  return (
-    <div className="App">
-      Hello everyone
-      <br />
-      {welcomeElement}
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        Hello everyone
+        <br />
+        <Welcome messageValue={this.state.message} data={10} show={true} print={this.printHandler} />;
+        <br />
+        <br />
+        <button onClick={() => this.changeMessageHandler('welcome to state in class component')}>Change Mesaage</button>
+      </div>
+    );
+  }
 }
 
 export default App;

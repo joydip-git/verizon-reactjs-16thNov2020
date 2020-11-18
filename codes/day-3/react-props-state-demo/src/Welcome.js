@@ -2,14 +2,31 @@ import { Component } from 'react'
 
 class Welcome extends Component {
 
+    state = {
+        count: 0,
+        x: 100
+    }
+
+    countHandler = () => {
+
+        this.setState(
+            (lastState) => {
+                return {
+                    count: lastState.count + 1
+                }
+            },
+            () => console.log(this.state)
+        );
+
+    }
+
     callPrint = () => {
         this.props.print(100);
     }
 
     render() {
-        //console.log(this.props)
         const { messageValue, data, show } = this.props;
-        //this.props.data = this.props.data + 10; <-- not possible (properties are immutable)
+
         return (
             <div>
                 Message:&nbsp;{messageValue}
@@ -19,6 +36,10 @@ class Welcome extends Component {
                 Show?&nbsp;{show.toString()}
                 <br />
                 <button onClick={this.callPrint}>Call Print</button>
+                <br />
+                Count:&nbsp;{this.state.count}
+                <br />
+                <button onClick={this.countHandler}>Change Count</button>
             </div>
         )
     }

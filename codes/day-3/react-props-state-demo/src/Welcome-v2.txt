@@ -1,0 +1,95 @@
+import { Component } from 'react'
+
+class Welcome extends Component {
+
+    /*
+    constructor() {
+        super() //Component.call(this)
+        //state property must be assigned to a javascript object (No primitive types or array or string)
+        //in the constructor initialize the state with default values
+        this.state = {
+            count: 0,
+            x: 100
+        }
+    }
+    */
+
+    //alternate (directly use state property without using ctor)
+    state = {
+        count: 0,
+        x: 100
+    }
+
+    countHandler = () => {
+        //console.log(this.state.count)
+
+        //DO NOT mutate the state in the following way
+        //that will not invoke render()
+        //this.state.count = this.state.count + 10;
+
+        //you may try to invoke render() manually, but no gurantee that state has been updated by the time
+        //this.render()
+
+        //setState makes a copy of the old state object
+        //make changes in the copy state
+        //then reassigns the state property with the copy state (containing every property with their old values as it is, except the one with updated value)
+
+        // let copyState = { ...this.state }
+        // copyState.count = 10;
+        // this.state = copyState;
+
+        //pass a new state object and additionally a callback
+        // this.setState({
+        //     count: 10
+        // },()=>console.log(this.state));
+
+
+        //pass a callback which can accept last updated state (BUT make sure to return new state object) and additionally a callback
+        this.setState((lastState) => {
+            console.log(lastState)
+            return {
+                count: lastState.count + 1
+            }
+        }, () => console.log(this.state));
+
+        //pass a callback which can accept last updated state and property values that have been passed from parent component (BUT make sure to return new state object) and additionally a callback
+
+        // this.setState((lastState, props) => {
+        //     console.log(lastState)
+        //     return {
+        //         count: lastState.count + props.data
+        //     }
+        // }, () => console.log(this.state));
+
+        // setTimeout(() => {
+        //     console.log(this.state.count)
+        // }, 500);
+        // console.log(this.state.count)
+    }
+
+    callPrint = () => {
+        this.props.print(100);
+    }
+
+    render() {
+        console.log('welcome rendered...')
+        const { messageValue, data, show } = this.props;
+        //this.props.data = this.props.data + 10; <-- not possible (properties are immutable)
+        return (
+            <div>
+                Message:&nbsp;{messageValue}
+                <br />
+                Data:&nbsp;{data}
+                <br />
+                Show?&nbsp;{show.toString()}
+                <br />
+                <button onClick={this.callPrint}>Call Print</button>
+                <br />
+                Count:&nbsp;{this.state.count}
+                <br />
+                <button onClick={this.countHandler}>Change Count</button>
+            </div>
+        )
+    }
+}
+export default Welcome;
