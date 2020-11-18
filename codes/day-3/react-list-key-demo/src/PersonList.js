@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Person from "./Person";
 import PersonCard from "./PersonCard";
+import PersonEdit from "./PersonEdit";
 import './PersonList.css'
 
 export default class PersonList extends Component {
@@ -26,10 +27,20 @@ export default class PersonList extends Component {
                 location: 'bangalore'
             }
         ],
-        selectedPerson: null
+        selectedPerson: null,
+        showEdit: false
     }
     //#endregion
 
+    changeShowEditHandler = () => {
+        if (!this.state.showEdit) {
+            this.setState(ps => {
+                return {
+                    showEdit: true
+                }
+            })
+        }
+    }
     selectPersonHandler = (personId) => {
         let found = this.state.people.find(p => p.id === personId)
         //let copy = { ...found };
@@ -57,17 +68,26 @@ export default class PersonList extends Component {
                             return (
                                 <Person
                                     personInfo={personObj}
-                                    selectPerson={this.selectPersonHandler} />
+                                    selectPerson={this.selectPersonHandler}
+                                />
                             )
                         })
                     }
                 </div>
                 {
                     this.state.selectedPerson !== null ?
-                        (<PersonCard personData={this.state.selectedPerson} />)
+                        (<PersonCard
+                            personData={this.state.selectedPerson}
+                            editPerson={this.changeShowEditHandler}
+                        />)
                         :
                         (<span>Select a Person</span>)
                 }
+                <div>
+                    {
+                        this.state.showEdit && (<PersonEdit personData={this.state.selectedPerson} />)
+                    }
+                </div>
             </div>
         );
     }
