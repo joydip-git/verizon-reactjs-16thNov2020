@@ -1,0 +1,9 @@
+.divStyle {
+  width: 100px;
+  height: 100px;
+  background-color: beige;
+  font-family: "Segoe UI";
+  font-size: medium;
+  border: 2px solid black;
+  margin: 10px;
+}
