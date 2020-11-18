@@ -1,0 +1,48 @@
+//import { Component } from 'react'
+
+/*
+class Welcome extends Component {
+    render() {
+        return <span>Welcome to class component</span>
+    }
+}
+//console.log(Component.prototype)
+*/
+/**
+ * properties={ messageValue:'Welcome to functional component', data:10, show:true, print:()=>{}}
+ */
+const Welcome = (props) => {
+    //properties.data = properties.data + 10;-->not possible
+    //let x = properties.data + 10;-->possible
+    const { messageValue, data, show, print } = props;
+    const someValue = 100;
+    const callPrint = () => {
+        print(someValue);
+    }
+    return (
+        <span>
+            Message:&nbsp;{messageValue}
+            <br />
+            Data:&nbsp;{data}
+            <br />
+            Show?&nbsp;{show.toString()}
+            <br />
+            <button onClick={callPrint}>Call Print</button>
+        </span>
+    );
+}
+export default Welcome;
+/**
+ * {
+ * type:'span',
+ * key:null,
+ * ref:null,
+ * props:{
+ *   messageValue:'',
+ *   data:10,
+ *   show:true,
+ *   print:()=>{},
+ *   children:[RE1,....,RE13]
+ * }
+ * }
+ */
