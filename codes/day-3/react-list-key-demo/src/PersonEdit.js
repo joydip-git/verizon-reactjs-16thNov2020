@@ -6,7 +6,8 @@ export default class PersonEdit extends Component {
     //     super()
     // }
     static propTypes = {
-        personData: PropTypes.object.isRequired
+        personData: PropTypes.object.isRequired,
+        modify: PropTypes.func.isRequired
     }
     state = {
         person: null
@@ -19,7 +20,7 @@ export default class PersonEdit extends Component {
         console.log('getDerivedStateFromProps')
         console.log(newProps)
         console.log(lastState)
-        if (lastState.person === null) {
+        if (lastState.person === null || newProps.personData !== lastState.person) {
             return {
                 person: newProps.personData
             }
@@ -27,6 +28,9 @@ export default class PersonEdit extends Component {
             return null;
     }
 
+    shouldComponentUpdate(newProps, lastState) {
+        return true;
+    }
     updatePersonHandler = (propertyName, propertyValue) => {
 
         let copyOfPerson = { ...this.state.person };
@@ -37,13 +41,18 @@ export default class PersonEdit extends Component {
         }, () => console.log(this.state))
     }
 
+    passPersonToParent = (event) => {
+        event.preventDefault()
+        this.props.modify(this.state.person);
+        //console.log(this.state.person)
+    }
     render() {
+        console.log('[PersonEdit] rendered')
         console.log(this.state)
         const { person } = this.state;
-
         return (
             <div className='table-responsive'>
-                <form>
+                <form onSubmit={this.passPersonToParent}>
                     Id:&nbsp;
                 <input type='text' value={person.id} readOnly />
                     <br />

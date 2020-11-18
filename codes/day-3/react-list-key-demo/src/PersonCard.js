@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
+import { memo } from 'react';
 
-export default function PersonCard({ personData, editPerson }) {
+function PersonCard({ personData, editPerson }) {
+    console.log('[PersonCard] rendered')
     return (
         <div className='container'>
             <div className='panel panel-primary'>
@@ -29,3 +31,5 @@ PersonCard.propTypes = {
     personData: PropTypes.object.isRequired,
     editPerson: PropTypes.func.isRequired
 }
+
+export default memo(PersonCard);

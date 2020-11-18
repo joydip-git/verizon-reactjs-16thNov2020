@@ -33,19 +33,30 @@ export default class PersonList extends Component {
     //#endregion
 
     changeShowEditHandler = () => {
-        if (!this.state.showEdit) {
-            this.setState(ps => {
-                return {
-                    showEdit: true
-                }
-            })
-        }
+        this.setState(ps => {
+            return {
+                showEdit: true
+            }
+        })
     }
+
     selectPersonHandler = (personId) => {
         let found = this.state.people.find(p => p.id === personId)
         //let copy = { ...found };
         this.setState({
             selectedPerson: found
+        })
+    }
+
+    modifyPersonHandler = (newPerson) => {
+
+        let copyOfPeople = [...this.state.people]
+        let foundIndex = copyOfPeople.findIndex(p => p.id === newPerson.id);
+
+        copyOfPeople[foundIndex] = newPerson;
+        this.setState({
+            people: copyOfPeople,
+            selectedPerson: newPerson
         })
     }
 
@@ -85,7 +96,7 @@ export default class PersonList extends Component {
                 }
                 <div>
                     {
-                        this.state.showEdit && (<PersonEdit personData={this.state.selectedPerson} />)
+                        this.state.showEdit && (<PersonEdit personData={this.state.selectedPerson} modify={this.modifyPersonHandler} />)
                     }
                 </div>
             </div>
