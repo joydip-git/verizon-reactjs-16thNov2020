@@ -1,0 +1,62 @@
+1. key property of react element
+2. lifecycle events of class component object
+3. error handling
+4. hoc
+5. render prop
+6. ref
+
+7. HTTP requests
+8. routing
+9. redux - redux core, redux async (thunk middleware)
+10. create application
+
+
+Life-Cycle: NOT react element BUT class component instance
+
+1. creation stage and mounting
+
+state={
+ records:[],
+ response:null
+}
+
+a. constructor this.state={count:10}
+   DO NOT WRITE ANY SIDE EFFECT CAUSING CODE HERE
+   ctor should be used for two reasons: setting state or binding methods of the class to the current context
+   when using alternates then you don't need to explicitly write ctor even
+
+b. static getDerivedStateFromProps(newProps, state){ return {count:newProps.data} or return null; }
+   gets executed every time: first time after ctor and next time onwards the as the first method
+   DO NOT WRITE ANY SIDE EFFECT CAUSING CODE HERE
+   
+c. render--> to create the VDOM part related to this component
+   DO NOT WRITE ANY SIDE EFFECT CAUSING CODE HERE
+
+d. componentDidMount
+   only for the very first time, until and unless you have destroyed the component instance and remounting
+   WRITE ANY SIDE EFFECT CAUSING CODE HERE   
+
+{
+type:'span'   --> <span></span>
+}
+
+
+2. updation stage:
+   a. static getDerivedStateFromProps(newProps, state)
+   b. shouldComponentUpdate(newProps, state)
+    returns true/false
+    this function gets executed from second cycle onwards
+    this function decides whether render or any other method followed by render method should be called or not
+    DO NOT WRITE ANY SIDE EFFECT CAUSING CODE HERE
+   c. render
+   d. getSnapshotBeforeUpdate(oldProps, state)
+   e. componentDidUpdate(oldProps, state, snapshot)	
+
+
+3. destruction stage
+   a. componentWillUnmount()
+
+4. error
+   a. static getDerivedStateFromError(error)
+   b. componentDidCatch(error, info)
+

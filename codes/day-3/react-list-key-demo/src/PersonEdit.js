@@ -2,9 +2,11 @@ import PropTypes from 'prop-types'
 import { Component } from 'react'
 
 export default class PersonEdit extends Component {
-    // constructor() {
-    //     super()
-    // }
+    constructor() {
+        super()
+
+        console.log('[PE] ctor called')
+    }
     static propTypes = {
         personData: PropTypes.object.isRequired,
         modify: PropTypes.func.isRequired
@@ -16,16 +18,17 @@ export default class PersonEdit extends Component {
     static getDerivedStateFromProps(newProps, lastState) {
         //console.log(this.props)
         //return a new state or null
-
-        console.log('getDerivedStateFromProps')
+        //getRecords().then().catch()
+        console.log('[PE] getDerivedStateFromProps')
         console.log(newProps)
         console.log(lastState)
-        if (lastState.person === null || newProps.personData !== lastState.person) {
-            return {
-                person: newProps.personData
-            }
-        } else
-            return null;
+        // if (lastState.person === null) {
+        //     return {
+        //         person: newProps.personData
+        //     }
+        // } else
+        //     return null;
+        return null;
     }
 
     shouldComponentUpdate(newProps, lastState) {
@@ -46,36 +49,49 @@ export default class PersonEdit extends Component {
         this.props.modify(this.state.person);
         //console.log(this.state.person)
     }
+
+    componentDidMount() {
+        console.log('[PE] mounted')
+        //getData();
+        this.setState((ps, props) => { return { person: props.personData } });
+    }
+    componentWillUnmount() {
+        console.log('[PE] dismounted')
+    }
     render() {
-        console.log('[PersonEdit] rendered')
+        //getData().then(this.setState({})).catch()
+        console.log('[PE] rendered')
         console.log(this.state)
         const { person } = this.state;
-        return (
-            <div className='table-responsive'>
-                <form onSubmit={this.passPersonToParent}>
-                    Id:&nbsp;
+        if (person !== null) {
+            return (
+                <div className='table-responsive'>
+                    <form onSubmit={this.passPersonToParent}>
+                        Id:&nbsp;
                 <input type='text' value={person.id} readOnly />
-                    <br />
+                        <br />
                     Name:&nbsp;
                 <input type='text' value={person.name}
-                        onChange={(event) => this.updatePersonHandler('name', event.target.value)}
-                    />
-                    <br />
+                            onChange={(event) => this.updatePersonHandler('name', event.target.value)}
+                        />
+                        <br />
                 Age:&nbsp;
                 <input type='text' value={person.age}
-                        onChange={(event) => this.updatePersonHandler('age', parseInt(event.target.value))}
-                    />
-                    <br />
+                            onChange={(event) => this.updatePersonHandler('age', parseInt(event.target.value))}
+                        />
+                        <br />
                 Location:&nbsp;
                 <input type='text' value={person.location}
-                        onChange={(event) => this.updatePersonHandler('location', event.target.value)}
-                    />
-                    <br />
-                    <br />
-                    <input type='submit' value='Edit' className='btn btn-danger' />
-                </form>
-            </div>
-        );
+                            onChange={(event) => this.updatePersonHandler('location', event.target.value)}
+                        />
+                        <br />
+                        <br />
+                        <input type='submit' value='Edit' className='btn btn-danger' />
+                    </form>
+                </div>
+            );
+        }
+        else return <span>no person</span>;
     }
 }
 // PersonEdit.propTypes = {

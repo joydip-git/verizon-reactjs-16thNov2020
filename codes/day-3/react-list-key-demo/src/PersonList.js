@@ -5,6 +5,12 @@ import PersonEdit from "./PersonEdit";
 import './PersonList.css'
 
 export default class PersonList extends Component {
+
+    constructor() {
+        super()
+        console.log('[PL] rendered')
+    }
+
     //#region State Data
     state = {
         people: [
@@ -33,9 +39,11 @@ export default class PersonList extends Component {
     //#endregion
 
     changeShowEditHandler = () => {
+
+        //console.log(this)
         this.setState(ps => {
             return {
-                showEdit: true
+                showEdit: !ps.showEdit
             }
         })
     }
@@ -61,6 +69,7 @@ export default class PersonList extends Component {
     }
 
     render() {
+        //this.changeShowEditHandler();
         // const divStyle = {
         //     width: '100px',
         //     height: '100px',
@@ -70,14 +79,17 @@ export default class PersonList extends Component {
         //     border: '2px solid black',
         //     margin: '10px'
         // }
+
         return (
             // <div style={divStyle}>
             <div>
+                <button onClick={this.changeShowEditHandler}>Click</button>
+                <br />
                 <div className='divStyle'>
                     {
                         this.state.people.map((personObj, index) => {
                             return (
-                                <Person
+                                <Person key={personObj.id}
                                     personInfo={personObj}
                                     selectPerson={this.selectPersonHandler}
                                 />
