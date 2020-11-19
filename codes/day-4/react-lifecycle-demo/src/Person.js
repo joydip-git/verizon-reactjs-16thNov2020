@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 
 const Person = ({ personInfo, selectPerson }) => {
@@ -17,4 +17,4 @@ Person.propTypes = {
     selectPerson: PropTypes.func.isRequired,
 }
 
-export default Person
+export default memo(Person)

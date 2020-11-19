@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { getPeopleById } from './data/peopleList'
 
-export default class PersonEdit extends Component {
+export default class PersonEdit extends PureComponent {
     constructor() {
         super()
         console.log('[PE] ctor called')
@@ -13,7 +13,7 @@ export default class PersonEdit extends Component {
     }
 
     static propTypes = {
-        personid: PropTypes.object.isRequired,
+        personid: PropTypes.number.isRequired,
         modify: PropTypes.func.isRequired
     }
 
@@ -37,18 +37,28 @@ export default class PersonEdit extends Component {
         return null;
     }
 
-    shouldComponentUpdate(newProps, oldState) {
-        console.log('[PE] shouldComponentUpdate...')
-        console.log(newProps)
-        console.log(this.props)
-        console.log(oldState)
-        console.log(this.state)
+    //value!==value
+    //ref !== ref
+    // shouldComponentUpdate(newProps, oldState) {
+    //     for (let propName in newProps) {
+    //         if (this.props[propName] !== newProps[propName]) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+    // shouldComponentUpdate(newProps, oldState) {
+    //     console.log('[PE] shouldComponentUpdate...')
+    //     console.log(newProps)
+    //     console.log(this.props)
+    //     console.log(oldState)
+    //     console.log(this.state)
 
-        if (this.state.person !== null && (newProps.personid === this.props.personid && oldState.person.id === this.state.personid)) {
-            return false;
-        } else
-            return true;
-    }
+    //     if (this.state.person !== null && (newProps.personid === this.props.personid && oldState.person.id === this.state.personid)) {
+    //         return false;
+    //     } else
+    //         return true;
+    // }
     render() {
         console.log('[PE] rendered')
         const { person } = this.state;
@@ -75,8 +85,13 @@ export default class PersonEdit extends Component {
             return <span>not found yet...</span>
     }
 
+    getSnapshotBeforeUpdate(oldProps, oldState) {
+        console.log('[PE] getSnapshotBeforeUpdate')
+        return 'hello';
+    }
     componentDidUpdate(oldProps, oldState, snapshot) {
         console.log('[PE] update')
+        console.log(snapshot)
         console.log(oldProps)
         console.log(this.props)
         if (this.props.personid !== oldProps.personid)

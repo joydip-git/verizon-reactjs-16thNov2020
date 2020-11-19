@@ -58,7 +58,14 @@ export default class PersonList extends Component {
             </div>
         )
     }
-
+    getSnapshotBeforeUpdate(oldProps, oldState) {
+        console.log('[PL] getSnapshotBeforeUpdate')
+        return 'Hi';
+    }
+    componentDidUpdate(oldProps, oldState, snapshot) {
+        console.log('[PL] componentDidUpdate')
+        console.log(snapshot)
+    }
     componentDidMount() {
         console.log('[PL] mounted')
         let data = getPeople();
