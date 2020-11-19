@@ -43,14 +43,21 @@ type:'span'   --> <span></span>
 
 2. updation stage:
    a. static getDerivedStateFromProps(newProps, state)
+
    b. shouldComponentUpdate(newProps, state)
     returns true/false
     this function gets executed from second cycle onwards
     this function decides whether render or any other method followed by render method should be called or not
     DO NOT WRITE ANY SIDE EFFECT CAUSING CODE HERE
+
    c. render
+
    d. getSnapshotBeforeUpdate(oldProps, state)
-   e. componentDidUpdate(oldProps, state, snapshot)	
+      DO NOT WRITE ANY SIDE EFFECT CAUSING CODE HERE
+
+   e. componentDidUpdate(oldProps, state, snapshot)
+      this function gets executed from second cycle onwards
+      WRITE ANY SIDE EFFECT CAUSING CODE HERE	
 
 
 3. destruction stage
@@ -59,4 +66,7 @@ type:'span'   --> <span></span>
 4. error
    a. static getDerivedStateFromError(error)
    b. componentDidCatch(error, info)
+
+
+if (this.state.person !== null && (this.props.personid !== oldProps.personid || this.state.person.id !== this.props.personid))
 
