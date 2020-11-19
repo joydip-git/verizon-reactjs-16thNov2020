@@ -3,8 +3,8 @@
 3. error handling
 4. hoc
 5. render prop
-6. ref
 
+6. ref
 7. HTTP requests
 8. routing
 9. redux - redux core, redux async (thunk middleware)

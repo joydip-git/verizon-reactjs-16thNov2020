@@ -1,0 +1,5 @@
+6. ref
+7. HTTP requests
+8. routing
+9. redux - redux core, redux async (thunk middleware)
+10. create application
