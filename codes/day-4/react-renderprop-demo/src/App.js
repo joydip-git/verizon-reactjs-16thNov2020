@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import ClickCounter from './ClickCounter';
+import Counter from './Counter';
+import HoverCounter from './HoverCounter';
 
 function App() {
+  /*
+    const showClickCounter = (counterData, counterFn) => {
+      return <ClickCounter counterValue={counterData} counterHandler={counterFn} data={10} />
+    }
+  
+    const showHoverCounter = (counterData, counterFn) => {
+      return <HoverCounter counter={counterData} handler={counterFn} value={20} />
+    }
+  */
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Counter show={showClickCounter} />
+      <br />
+      <br />
+      <Counter show={showHoverCounter} /> */}
+      <Counter render={(counterData, counterFn) => {
+        return <ClickCounter counterValue={counterData} counterHandler={counterFn} data={10} />
+      }} />
+      <br />
+      <br />
+      <Counter render={(counterData, counterFn) => {
+        return <HoverCounter counter={counterData} handler={counterFn} value={20} />
+      }} />
     </div>
   );
 }

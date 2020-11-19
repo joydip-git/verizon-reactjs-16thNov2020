@@ -70,3 +70,6 @@ type:'span'   --> <span></span>
 
 if (this.state.person !== null && (this.props.personid !== oldProps.personid || this.state.person.id !== this.props.personid))
 
+
+
+

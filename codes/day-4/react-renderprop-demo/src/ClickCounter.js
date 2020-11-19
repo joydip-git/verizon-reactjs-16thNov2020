@@ -1,7 +1,5 @@
-import { memo } from "react";
-import withCounter from "./withCounter"
-
-function OriginalClickCounter(props) {
+import PropTypes from 'prop-types'
+function ClickCounter(props) {
     return (
         <div>
             Data:&nbsp;{props.data}
@@ -12,6 +10,9 @@ function OriginalClickCounter(props) {
         </div>
     )
 }
-
-const ClickCounter = memo(withCounter(OriginalClickCounter, 10));
+ClickCounter.propTypes = {
+    counterValue: PropTypes.number.isRequired,
+    counterHandler: PropTypes.func.isRequired,
+    data: PropTypes.number.isRequired
+}
 export default ClickCounter;
