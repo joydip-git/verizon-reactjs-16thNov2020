@@ -1,0 +1,33 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+const Hero = ({ heroName }) => {
+
+    let design = null;
+
+    try {
+        if (heroName === 'Joker') {
+            throw new Error('Not a Hero...')
+        }
+        design = (
+            <div>
+                Name:&nbsp;{heroName}
+            </div>
+        )
+    }
+    catch (e) {
+        design = (
+            <div>
+                Error Occurred...
+            </div>
+        )
+    }
+
+    return design;
+}
+
+Hero.propTypes = {
+    heroName: PropTypes.string.isRequired
+}
+
+export default Hero
