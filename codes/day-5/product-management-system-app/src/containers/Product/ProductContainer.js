@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ProductList from '../../components/Product/ProductList/ProductList'
 
 export default class ProductContainer extends Component {
     state = {
@@ -10,7 +11,7 @@ export default class ProductContainer extends Component {
     render() {
         return (
             <div>
-
+                <ProductList />
             </div>
         )
     }

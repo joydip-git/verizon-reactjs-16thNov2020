@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function DashBoard() {
     return (
@@ -9,16 +10,16 @@ function DashBoard() {
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
 
-                    <a href='#' className='btn btn-group'>
+                    <Link to='/home' className='btn btn-group'>
                         Home
-                    </a>
+                    </Link>
 
-                    <a href='#' className="btn btn-group">
+                    <Link to='/products' className="btn btn-group">
                         Products
-                    </a>
-                    <a href="#" className="btn btn-group">
+                    </Link>
+                    <Link to="/product/add" className="btn btn-group">
                         Add Product
-                    </a>
+                    </Link>
                 </div>
             </nav>
         </>

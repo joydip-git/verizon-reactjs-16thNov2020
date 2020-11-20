@@ -1,10 +1,12 @@
-import { DashBoard } from "../../components/Common/DashBoard/DashBoard";
+import DashBoard from "../../components/Common/DashBoard/DashBoard";
+import RouteGenerator from "../../routes/RouteGenerator";
 
-//import './App.css';
 function App() {
   return (
     <div className="container">
       <DashBoard />
+      <RouteGenerator />
+      {/* <Route path='*' render={() => <span>Page Not Found</span>} /> */}
     </div>
   );
 }

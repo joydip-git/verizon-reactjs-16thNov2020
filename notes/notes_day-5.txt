@@ -63,4 +63,7 @@ BrowserRouter --> routing engine: BrowerRouter component
 2. BR will read from or write into browser
 
 
+id:1,url:'/',componentName: Home
+
+
 
