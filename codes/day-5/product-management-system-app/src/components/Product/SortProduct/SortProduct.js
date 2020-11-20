@@ -9,12 +9,12 @@ const SortProduct = props => {
             </div>
             <div className="col-md-4">
                 <select>
-                    <option key={-1} disabled>--select--</option>
-                    <option key={0} disabled>Id</option>
-                    <option key={1} disabled>Name</option>
-                    <option key={2} disabled>Price</option>
-                    <option key={3} disabled>Rating</option>
-                </select>                
+                    <option key={-1} disabled selected>--select--</option>
+                    <option key={0} >Id</option>
+                    <option key={1} >Name</option>
+                    <option key={2} >Price</option>
+                    <option key={3} >Rating</option>
+                </select>
             </div>
         </>
     )

@@ -20,7 +20,7 @@ const ProductRow = ({ product }) => {
                 </Link>
             </td>
             <td>
-                <Link to=''>
+                <Link to='#'>
                     {product.productName}
                 </Link>
             </td>
