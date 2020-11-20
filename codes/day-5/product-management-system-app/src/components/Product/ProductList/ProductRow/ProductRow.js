@@ -6,7 +6,7 @@ const ProductRow = ({ product }) => {
     return (
         <tr>
             <td>
-                <Link to='#'>
+                <Link to={`/products/${product.productId}`}>
                     <div className="img-responsive">
                         <img
                             src={product.imageUrl} alt="NA"
@@ -20,7 +20,7 @@ const ProductRow = ({ product }) => {
                 </Link>
             </td>
             <td>
-                <Link to='#'>
+                <Link to={`/product/update/${product.productId}`}>
                     {product.productName}
                 </Link>
             </td>

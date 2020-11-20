@@ -10,15 +10,21 @@ function DashBoard() {
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
 
-                    <Link to='/home' className='btn btn-group'>
-                        Home
+                    <Link to='/home'>
+                        <button className='btn btn-primary'>
+                            Home
+                        </button>
                     </Link>
 
-                    <Link to='/products' className="btn btn-group">
-                        Products
+                    <Link to='/products'>
+                        <button className="btn btn-primary">
+                            Products
+                        </button>
                     </Link>
-                    <Link to="/product/add" className="btn btn-group">
-                        Add Product
+                    <Link to="/product/add">
+                        <button className="btn btn-primary">
+                            Add Product
+                        </button>
                     </Link>
                 </div>
             </nav>
