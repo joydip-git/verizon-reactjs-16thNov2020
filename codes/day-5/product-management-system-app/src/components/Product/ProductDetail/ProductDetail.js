@@ -1,19 +1,61 @@
 import React, { Component } from 'react'
+import { getProductRecordById } from '../../../services/productService'
 
 export default class ProductDetail extends Component {
+    state = {
+        product: null,
+        loading: true,
+        error: null
+    }
+    componentDidMount() {
+        const id = parseInt(this.props.match.params.id)
+        getProductRecordById(id)
+            .then(
+                (successResponse) => {
+                    this.setState({
+                        product: successResponse.data,
+                        loading: false,
+                        error: null
+                    })
+                },
+                (failureResponse) => {
+                    this.setState({
+                        product: null,
+                        loading: false,
+                        error: failureResponse
+                    })
+                })
+            .catch(e => {
+                this.setState({
+                    product: null,
+                    loading: false,
+                    error: e.message
+                })
+            })
+    }
     render() {
-        console.log(this.props)
-        console.log(this.props.match.params.id)
-        return (
-            <div>
-                Product Detail
-                <br />
-                <button
-                    className='btn btn-primary'
-                    onClick={() => this.props.history.push('/products')}>
-                    Back
-                </button>
-            </div>
-        )
+        const { product, loading, error } = this.state;
+
+        let design = null;
+        if (loading) {
+            design = <span>Loading...</span>
+        } else if (error !== null) {
+            design = <span>{error}</span>
+        } else {
+            design = (
+                <div>
+                    Detail of:&nbsp;{product.productName}
+                    <br />
+                    <br />
+                    <button
+                        className='btn btn-primary'
+                        onClick={() => this.props.history.push('/products')}>
+                        Back
+                    </button>
+                </div>
+            )
+        }
+
+        return design;
     }
 }
