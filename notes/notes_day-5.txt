@@ -67,3 +67,16 @@ id:1,url:'/',componentName: Home
 
 
 
+{
+        productId: 101,
+        productName: "Leaf Rake",
+        productCode: "GDN-0011",
+        releaseDate: "March 19, 2016",
+        description: "Leaf rake with 48-inch wooden handle.",
+        price: 19.95,
+        starRating: 4,
+        imageUrl: "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+}
+
+
+
