@@ -2,17 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ProductRow from './ProductRow/ProductRow'
 
-const ProductList = props => {
+const ProductList = ({ records }) => {
     return (
         <div>
-            Products List
-            <ProductRow />
+            {
+                //records.map()
+            }
         </div>
     )
 }
 
 ProductList.propTypes = {
-
+    records: PropTypes.array.isRequired
 }
 
 export default ProductList
