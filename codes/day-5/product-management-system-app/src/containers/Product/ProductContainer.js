@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import FilterProduct from '../../components/Product/FilterProduct/FilterProduct'
 import ProductList from '../../components/Product/ProductList/ProductList'
+import SortProduct from '../../components/Product/SortProduct/SortProduct'
 import { getProductRecords } from '../../services/productService'
 
 export default class ProductContainer extends Component {
@@ -44,8 +46,15 @@ export default class ProductContainer extends Component {
             design = <span>No products found</span>
         } else {
             design = (
-                <div>
-                    <ProductList records={products}/>
+                <div className="panel panel-prinary" style={{ border: '1px solid azure', borderRadius: '5px', margin: '5px' }}>
+                    <div className="panel panel-body">
+                        <div className="row">
+                            <FilterProduct />
+                            <SortProduct />
+                        </div>
+                        <br />
+                        <ProductList records={products} />
+                    </div>
                 </div>
             );
         }
