@@ -1,4 +1,4 @@
-const { default: DashBoard } = require("../../components/Common/DashBoard/DashBoard");
+import { DashBoard } from "../../components/Common/DashBoard/DashBoard";
 
 //import './App.css';
 function App() {

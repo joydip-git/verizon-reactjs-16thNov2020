@@ -19,7 +19,7 @@ App will nest DashBoard by default
 and rest of the components will be displayed through change of routes
 
 URL				component
-localhost:3000			Home
+localhost:3000			Home [default url]
 localhost:3000/home		Home
 localhost:3000/products		ProductContainer -- [ProductFilter+ProductSort+ProductList--[ProductRow]]
 localhost:3000/products/1	ProductDetail
@@ -53,7 +53,14 @@ Validate (ref)
 
 
 Routing:
+package: react-router-dom
 
+BrowserRouter --> routing engine: BrowerRouter component
+1. register your routes
+   a. Route component:
+      i. path (/home, /products etc.)
+      ii. component: 
+2. BR will read from or write into browser
 
 
 

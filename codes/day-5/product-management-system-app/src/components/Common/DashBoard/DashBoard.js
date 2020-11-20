@@ -11,14 +11,14 @@ function DashBoard() {
 
                     <a href='#' className='btn btn-group'>
                         Home
-                </a>
+                    </a>
 
                     <a href='#' className="btn btn-group">
                         Products
-                </a>
+                    </a>
                     <a href="#" className="btn btn-group">
                         Add Product
-                </a>
+                    </a>
                 </div>
             </nav>
         </>
@@ -26,3 +26,10 @@ function DashBoard() {
 }
 
 export default DashBoard
+/*
+class Frag extends Component {
+    render() {
+        return this.props.children;
+    }
+}
+*/
