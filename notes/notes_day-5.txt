@@ -3,3 +3,57 @@
 8. routing
 9. redux - redux core, redux async (thunk middleware)
 10. create application
+
+
+
+
+1. download zip then extract
+2. open in VS code
+3. npm i (in terminal)
+4. npm start
+
+Product Management System App:
+1. Routing:
+
+App will nest DashBoard by default
+and rest of the components will be displayed through change of routes
+
+URL				component
+localhost:3000			Home
+localhost:3000/home		Home
+localhost:3000/products		ProductContainer -- [ProductFilter+ProductSort+ProductList--[ProductRow]]
+localhost:3000/products/1	ProductDetail
+localhost:3000/product/add	AddProduct
+localhost:3000/product/update/1	UpdateProduct
+localhost:3000/abcd		PageNotFound
+
+
+2. HTTP requests:
+Client API to make those HTTP requests
+
+data supplier: RESTFul API application (Nodes js+express js)
+source of data: JSON file
+
+APIs:
+GET -- http://127.0.0.1:8081/productservice
+GET -- http://127.0.0.1:8081/productservice/{productid} [route data]
+
+POST -- http://127.0.0.1:8081/productservice [JSON product obj in Request body]
+PUT -- http://127.0.0.1:8081/productservice [JSON product obj in Request body]
+DELETE -- http://127.0.0.1:8081/productservice/{productid} [route data]
+
+
+3. Applicatin wide state:
+Redux
+Redux middleware - thunk
+
+4. Form:
+controlled components
+Validate (ref)
+
+
+Routing:
+
+
+
+
