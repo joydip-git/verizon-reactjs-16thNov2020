@@ -9,6 +9,11 @@ export default class ProductDetail extends Component {
     }
     componentDidMount() {
         const id = parseInt(this.props.match.params.id)
+        //call you and pass id
+        // you do rest of the job
+
+        //initiate
+        //abdul(fetchProductByIdAsync);
         getProductRecordById(id)
             .then(
                 (successResponse) => {
@@ -41,6 +46,8 @@ export default class ProductDetail extends Component {
             design = <span>Loading...</span>
         } else if (error !== null) {
             design = <span>{error}</span>
+        } else if (product === null) {
+            design = <span>No record found</span>
         } else {
             design = (
                 <div>
@@ -55,7 +62,6 @@ export default class ProductDetail extends Component {
                 </div>
             )
         }
-
         return design;
     }
 }
