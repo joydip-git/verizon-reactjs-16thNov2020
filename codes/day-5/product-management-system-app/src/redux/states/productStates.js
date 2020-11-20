@@ -3,3 +3,9 @@ export const singleProductState = {
     loading: true,
     error: null
 }
+
+export const allProductsState = {
+    products: [],
+    loading: true,
+    error: null
+}

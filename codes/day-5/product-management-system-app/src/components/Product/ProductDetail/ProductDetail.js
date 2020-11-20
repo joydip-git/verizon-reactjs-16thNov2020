@@ -1,45 +1,16 @@
 import React, { Component } from 'react'
-import { getProductRecordById } from '../../../services/productService'
+import { connect } from 'react-redux'
+import { fetchProductByIdAsyncCallbackCreator } from '../../../redux/asyncoperations/productAsyncCallbacks'
 
-export default class ProductDetail extends Component {
-    state = {
-        product: null,
-        loading: true,
-        error: null
-    }
+class ProductDetail extends Component {
+
     componentDidMount() {
-        const id = parseInt(this.props.match.params.id)
-        //call you and pass id
-        // you do rest of the job
-
-        //initiate
-        //abdul(fetchProductByIdAsync);
-        getProductRecordById(id)
-            .then(
-                (successResponse) => {
-                    this.setState({
-                        product: successResponse.data,
-                        loading: false,
-                        error: null
-                    })
-                },
-                (failureResponse) => {
-                    this.setState({
-                        product: null,
-                        loading: false,
-                        error: failureResponse
-                    })
-                })
-            .catch(e => {
-                this.setState({
-                    product: null,
-                    loading: false,
-                    error: e.message
-                })
-            })
+        let id = parseInt(this.props.match.params.id);
+        this.props.getProduct(id);
     }
+
     render() {
-        const { product, loading, error } = this.state;
+        const { product, loading, error } = this.props;
 
         let design = null;
         if (loading) {
@@ -65,3 +36,21 @@ export default class ProductDetail extends Component {
         return design;
     }
 }
+
+const mapStateToProps = (combinedState) => {
+    return {
+        product: combinedState.productState.product,
+        loading: combinedState.productState.loading,
+        error: combinedState.productState.error
+    }
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getProduct: (productId) => {
+            let callback = fetchProductByIdAsyncCallbackCreator(productId)
+            dispatch(callback);
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
+//export default connector(ProductDetail);

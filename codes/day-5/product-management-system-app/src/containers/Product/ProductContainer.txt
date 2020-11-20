@@ -2,17 +2,42 @@ import React, { Component } from 'react'
 import FilterProduct from '../../components/Product/FilterProduct/FilterProduct'
 import ProductList from '../../components/Product/ProductList/ProductList'
 import SortProduct from '../../components/Product/SortProduct/SortProduct'
-import { fetchProductsAsyncCallbackCreator } from '../../redux/asyncoperations/productAsyncCallbacks'
-import { connect } from 'react-redux'
+import { getProductRecords } from '../../services/productService'
 
-class ProductContainer extends Component {
-
+export default class ProductContainer extends Component {
+    state = {
+        products: [],
+        loading: true,
+        error: null
+    }
     componentDidMount() {
-        this.props.getProducts()
+        getProductRecords()
+            .then(
+                (successResponse) => {
+                    this.setState({
+                        products: successResponse.data,
+                        loading: false,
+                        error: null
+                    })
+                }, (failureReason) => {
+                    this.setState({
+                        products: [],
+                        loading: false,
+                        error: failureReason
+                    })
+                })
+            .catch(e => {
+                this.setState({
+                    products: [],
+                    loading: false,
+                    error: e.message
+                })
+            })
     }
     render() {
+
         let design = null;
-        const { products, error, loading } = this.props;
+        const { products, error, loading } = this.state;
         if (loading) {
             design = <span>Loading...</span>
         } else if (error !== null) {
@@ -36,20 +61,3 @@ class ProductContainer extends Component {
         return design;
     }
 }
-
-const mapStateToProps = (combinedState) => {
-    return {
-        products: combinedState.productsState.products,
-        error: combinedState.productsState.error,
-        loading: combinedState.productsState.loading
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getProducts: () => {
-            let callback = fetchProductsAsyncCallbackCreator();
-            dispatch(callback);
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);
